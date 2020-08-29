@@ -39,7 +39,7 @@ body {
 <script>
 
 var margin = {top: 80, right: 80, bottom: 80, left: 80},
-    width = 600 - margin.left - margin.right,
+    width = 800 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
 var x = d3.scale.ordinal()
@@ -77,7 +77,7 @@ d3.tsv("data.tsv", type, function(error, data) {
 	  .attr("class", "y axis axisLeft")
 	  .attr("transform", "translate(0,0)")
 	  .call(yAxisLeft)
-	.append("text")
+	  .append("text")
 	  .attr("y", 6)
 	  .attr("dy", "-2em")
 	  .style("text-anchor", "end")
@@ -88,7 +88,7 @@ d3.tsv("data.tsv", type, function(error, data) {
 	  .attr("class", "y axis axisRight")
 	  .attr("transform", "translate(" + (width) + ",0)")
 	  .call(yAxisRight)
-	.append("text")
+	  .append("text")
 	  .attr("y", 6)
 	  .attr("dy", "-2em")
 	  .attr("dx", "2em")
@@ -102,14 +102,14 @@ d3.tsv("data.tsv", type, function(error, data) {
       .attr("x", function(d) { return x(d.year); })
       .attr("width", x.rangeBand()/2)
       .attr("y", function(d) { return y0(d.money); })
-	  .attr("height", function(d,i,j) { return height - y0(d.money); }); 
+	    .attr("height", function(d,i,j) { return height - y0(d.money); }); 
 
   bars.append("rect")
       .attr("class", "bar2")
       .attr("x", function(d) { return x(d.year) + x.rangeBand()/2; })
       .attr("width", x.rangeBand() / 2)
       .attr("y", function(d) { return y1(d.number); })
-	  .attr("height", function(d,i,j) { return height - y1(d.number); }); 
+	    .attr("height", function(d,i,j) { return height - y1(d.number); }); 
 
 });
 
